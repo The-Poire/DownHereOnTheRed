@@ -16,13 +16,13 @@ for k,v in ipairs(love.filesystem.getDirectoryItems("/usr")) do
 end
 print(local_path)
 Tiles = require("/Lib/Tiles/init")
-a = love.filesystem.newFileData(io.open("/home/nael/DownHereOnTheRed/Lib/Pixhole's tileset/MasterSimple18.png","rb"):read("*a"),0)
+a = love.filesystem.newFileData(io.open("/Lib/Pixhole's tileset/MasterSimple18.png","rb"):read("*a"),0)
 b = love.graphics.newImage(a)--"/home/nael/DownHereOnTheRed/Lib/Pixhole's tileset/MasterSimple18.png")
 function love.draw()
   love.graphics.draw(b,0,0)
 end
 --/home/nael/DownHereOnTheRed/Lib/Tiles/init.lua
---[=====[
+--[=====[]=====]
 s = 64
 Tiles:setGridSize(s)
 Tiles:setTiles({
@@ -77,5 +77,5 @@ function love.draw()
   Tiles:draw()
   love.graphics.print(1.0/love.timer.getDelta())
 end
-]=====]
+--]=====]
 function love.keyreleased(key)if key=="escape"then love.event.quit()end end
