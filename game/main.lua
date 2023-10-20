@@ -1,22 +1,39 @@
-love.window.setFullscreen(true)
+--love.window.setFullscreen(true)
 math.randomseed(os.time())
 
 --love.graphics.set
 local local_path = love.filesystem.getSourceBaseDirectory()
-
-Tiles = require(local_path.."/Lib/Tiles/")
-
+--love.filesystem.setSource(local_path)
+print(love.filesystem.getInfo("/home/nael/","file"))
+print(love.filesystem.getAppdataDirectory())
+print(love.filesystem.getIdentity())
+print(love.filesystem.getWorkingDirectory())
+print(love.filesystem.getSource())--([[.//Lib/Pixhole's tileset/MasterSimple18.png]]))
+print(love.filesystem.getUserDirectory())
+print(#love.filesystem.getDirectoryItems("/"))
+for k,v in ipairs(love.filesystem.getDirectoryItems("/usr")) do
+  print(k,v)
+end
+print(local_path)
+Tiles = require("/Lib/Tiles/init")
+a = love.filesystem.newFileData(io.open("/home/nael/DownHereOnTheRed/Lib/Pixhole's tileset/MasterSimple18.png","rb"):read("*a"),0)
+b = love.graphics.newImage(a)--"/home/nael/DownHereOnTheRed/Lib/Pixhole's tileset/MasterSimple18.png")
+function love.draw()
+  love.graphics.draw(b,0,0)
+end
+--/home/nael/DownHereOnTheRed/Lib/Tiles/init.lua
+--[=====[
 s = 64
 Tiles:setGridSize(s)
 Tiles:setTiles({
     --{name = "grass",texture = "grass.jpg"},
     --{name = "test",texture = "test.jpg"},
     --{name = "test2",texture = "test2.jpg"}
-    {texture = "Lib/Pixhole's tileset/MasterSimple18.png"},
-    {texture = "Lib/Pixhole's tileset/MasterSimple82.png"},
-    {texture = "Lib/Pixhole's tileset/MasterSimple130.png"},
-    {texture = "Lib/Pixhole's tileset/MasterSimple24.png"},
-    {texture = "Lib/Pixhole's tileset/MasterSimple75.png"},
+    {texture = local_path.."/Lib/Pixhole's tileset/MasterSimple18.png"},
+    {texture = local_path.."/Lib/Pixhole's tileset/MasterSimple82.png"},
+    {texture = local_path.."/Lib/Pixhole's tileset/MasterSimple130.png"},
+    {texture = local_path.."/Lib/Pixhole's tileset/MasterSimple24.png"},
+    {texture = local_path.."/Lib/Pixhole's tileset/MasterSimple75.png"},
     nil
     })
 
@@ -60,5 +77,5 @@ function love.draw()
   Tiles:draw()
   love.graphics.print(1.0/love.timer.getDelta())
 end
-
+]=====]
 function love.keyreleased(key)if key=="escape"then love.event.quit()end end

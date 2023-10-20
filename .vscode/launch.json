@@ -6,14 +6,16 @@
       "type": "lua-local",
       "request": "launch",
       "program": {
-        "command": "love"//"C:/Program Files/LOVE/love.exe"//"love"
+        "command": "love",//"C:/Program Files/LOVE/love.exe"//"love"
+        "communication": "stdio",
       },
       "args": [
-        "game"
+        "game",
       ],
       "scriptRoots": [
-        ""
-      ]
+        "game"
+      ],
+      //"linux": {"scriptRoots": ["/home/nael/"],"verbose": true}
     },
   ]
 }
